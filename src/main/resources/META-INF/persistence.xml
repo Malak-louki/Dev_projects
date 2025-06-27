@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+    <persistence-unit name="main">
+        <class>com.hb.cda.devproject.entity.Project</class>
+        <class>com.hb.cda.devproject.entity.User</class>
+        <class>com.hb.cda.devproject.entity.Developer</class>
+        <class>com.hb.cda.devproject.entity.skill</class>
+        <class>com.hb.cda.devproject.entity.ProjectOwner</class>
+        <class>com.hb.cda.devproject.entity.JobApplication</class>
+        
+        <properties>
+            <property name="jakarta.persistence.jdbc.url" 
+                    value="jdbc:mysql://dev:1234@localhost:3306/hb_cda_dev_projects?createDatabaseIfNotExist=true" />
+            <property  name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+
+</persistence>
