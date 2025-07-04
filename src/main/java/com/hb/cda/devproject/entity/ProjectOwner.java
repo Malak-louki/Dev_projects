@@ -22,8 +22,8 @@ public class ProjectOwner {
     @OneToMany(mappedBy = "projectOwner", cascade = CascadeType.ALL)
     private List<Project> projects = new ArrayList<>();
 
-    @OneToOne
-    @JoinColumn(name = "user_id") // FK en bdd
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "user_id") 
     private User user;
 
     public ProjectOwner() {

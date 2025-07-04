@@ -3,6 +3,8 @@ package com.hb.cda.devproject.entity;
 import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -17,7 +19,8 @@ public class JobApplication {
     private Integer id;
     private String message;
     private LocalDate date;
-    private Status status;
+    @Enumerated(EnumType.STRING) 
+    private ApplicationStatus applicationStatus;
     @ManyToOne
     @JoinColumn(name = "project_id")
     private Project project;
@@ -26,19 +29,19 @@ public class JobApplication {
     private Developer developer;
     public JobApplication() {
     }
-    public JobApplication(String message, LocalDate date, Status status, Project project, Developer developer) {
+    public JobApplication(String message, LocalDate date, ApplicationStatus applicationStatus, Project project, Developer developer) {
         this.message = message;
         this.date = date;
-        this.status = status;
+        this.applicationStatus = applicationStatus;
         this.project = project;
         this.developer = developer;
     }
-    public JobApplication(Integer id, String message, LocalDate date, Status status, Project project,
+    public JobApplication(Integer id, String message, LocalDate date, ApplicationStatus applicationStatus, Project project,
             Developer developer) {
         this.id = id;
         this.message = message;
         this.date = date;
-        this.status = status;
+        this.applicationStatus = applicationStatus;
         this.project = project;
         this.developer = developer;
     }
@@ -60,12 +63,7 @@ public class JobApplication {
     public void setDate(LocalDate date) {
         this.date = date;
     }
-    public Status getStatus() {
-        return status;
-    }
-    public void setStatus(Status status) {
-        this.status = status;
-    }
+
     public Project getProject() {
         return project;
     }
@@ -78,6 +76,12 @@ public class JobApplication {
     public void setDeveloper(Developer developer) {
         this.developer = developer;
     }
+        public ApplicationStatus getApplicationStatus() {
+        return applicationStatus;
+    }
+    public void setApplicationStatus(ApplicationStatus applicationStatus) {
+        this.applicationStatus = applicationStatus;
+    }
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -85,53 +89,10 @@ public class JobApplication {
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((message == null) ? 0 : message.hashCode());
         result = prime * result + ((date == null) ? 0 : date.hashCode());
-        result = prime * result + ((status == null) ? 0 : status.hashCode());
-        result = prime * result + ((project == null) ? 0 : project.hashCode());
-        result = prime * result + ((developer == null) ? 0 : developer.hashCode());
         return result;
     }
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        JobApplication other = (JobApplication) obj;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        if (message == null) {
-            if (other.message != null)
-                return false;
-        } else if (!message.equals(other.message))
-            return false;
-        if (date == null) {
-            if (other.date != null)
-                return false;
-        } else if (!date.equals(other.date))
-            return false;
-        if (status != other.status)
-            return false;
-        if (project == null) {
-            if (other.project != null)
-                return false;
-        } else if (!project.equals(other.project))
-            return false;
-        if (developer == null) {
-            if (other.developer != null)
-                return false;
-        } else if (!developer.equals(other.developer))
-            return false;
-        return true;
-    }
-    @Override
-    public String toString() {
-        return "JobApplication [id=" + id + ", message=" + message + ", date=" + date + ", status=" + status
-                + ", project=" + project + ", developer=" + developer + "]";
-    }
+
+
+
     
 }
