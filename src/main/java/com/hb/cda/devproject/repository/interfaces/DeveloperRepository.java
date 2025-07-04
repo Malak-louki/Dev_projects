@@ -7,4 +7,5 @@ import com.hb.cda.devproject.entity.Developer;
 public interface DeveloperRepository extends  GenericRepositoryInterface<Developer> {
 public Optional<Developer> getByUserName(String username);
 
+
 }

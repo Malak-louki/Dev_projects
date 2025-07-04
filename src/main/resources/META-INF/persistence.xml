@@ -7,9 +7,10 @@
         <class>com.hb.cda.devproject.entity.Project</class>
         <class>com.hb.cda.devproject.entity.User</class>
         <class>com.hb.cda.devproject.entity.Developer</class>
-        <class>com.hb.cda.devproject.entity.skill</class>
+        <class>com.hb.cda.devproject.entity.Skill</class>
         <class>com.hb.cda.devproject.entity.ProjectOwner</class>
         <class>com.hb.cda.devproject.entity.JobApplication</class>
+        <class>com.hb.cda.devproject.entity.DevMasterySkill</class>
         
         <properties>
             <property name="jakarta.persistence.jdbc.url" 

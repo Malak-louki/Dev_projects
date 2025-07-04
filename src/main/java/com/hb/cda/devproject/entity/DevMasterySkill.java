@@ -15,48 +15,54 @@ public class DevMasterySkill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Enumerated(EnumType.STRING)
-    private Mastery mastery;
+    private MasteryLevel masteryLevel;
     @ManyToOne
     private Developer developer;
     @ManyToOne
     private Skill skill;
+
     public DevMasterySkill() {
     }
-    public DevMasterySkill(Mastery mastery, Developer developer, Skill skill) {
-        this.mastery = mastery;
+
+    public DevMasterySkill(MasteryLevel masteryLevel, Developer developer, Skill skill) {
+        this.masteryLevel = masteryLevel;
         this.developer = developer;
         this.skill = skill;
     }
-    public DevMasterySkill(Integer id, Mastery mastery, Developer developer, Skill skill) {
+    public DevMasterySkill(Integer id, MasteryLevel masteryLevel, Developer developer, Skill skill) {
         this.id = id;
-        this.mastery = mastery;
+        this.masteryLevel = masteryLevel;
         this.developer = developer;
         this.skill = skill;
     }
-      public Integer getId() {
-          return id;
-      }
-      public void setId(Integer id) {
-          this.id = id;
-      }
-      public Mastery getMastery() {
-          return mastery;
-      }
-      public void setMastery(Mastery mastery) {
-          this.mastery = mastery;
-      }
-      public Developer getDeveloper() {
-          return developer;
-      }
-      public void setDeveloper(Developer developer) {
-          this.developer = developer;
-      }
-      public Skill getSkill() {
-          return skill;
-      }
-      public void setSkill(Skill skill) {
-          this.skill = skill;
-      }
+
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Developer getDeveloper() {
+        return developer;
+    }
+    public void setDeveloper(Developer developer) {
+        this.developer = developer;
+    }
+    public Skill getSkill() {
+        return skill;
+    }
+    public void setSkill(Skill skill) {
+        this.skill = skill;
+    }
+
+    public MasteryLevel getMasteryLevel() {
+        return masteryLevel;
+    }
+
+    public void setMasteryLevel(MasteryLevel masteryLevel) {
+        this.masteryLevel = masteryLevel;
+    }
     
     
 

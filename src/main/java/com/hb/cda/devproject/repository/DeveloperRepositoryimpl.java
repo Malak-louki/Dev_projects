@@ -4,11 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import com.hb.cda.devproject.entity.Developer;
+import com.hb.cda.devproject.entity.Project;
 import com.hb.cda.devproject.repository.interfaces.DeveloperRepository;
 
 import jakarta.persistence.EntityManager;
 
-public class DeveloperRepositoryimpl extends   GenericRepository<Developer> implements DeveloperRepository {
+public class DeveloperRepositoryimpl extends GenericRepository<Developer> implements DeveloperRepository {
 
     private EntityManager em = Database.getManager();
 
@@ -24,6 +25,7 @@ public class DeveloperRepositoryimpl extends   GenericRepository<Developer> impl
         }
     
     }
+  
 
     @Override
     public boolean delete(Developer t) {
@@ -80,7 +82,7 @@ public class DeveloperRepositoryimpl extends   GenericRepository<Developer> impl
     @Override
     public boolean update(Developer t) {
         try {
-              em.getTransaction().begin();
+        em.getTransaction().begin();
         em.merge(t);
         em.getTransaction().commit();
         return true;
@@ -91,5 +93,6 @@ public class DeveloperRepositoryimpl extends   GenericRepository<Developer> impl
         return false;
     }
 }
+
 
 }

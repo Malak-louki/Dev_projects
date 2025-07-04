@@ -3,6 +3,7 @@ package com.hb.cda.devproject.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,8 +23,8 @@ public class Developer {
     private List<JobApplication> jobApplications = new ArrayList<>();
     @OneToMany(mappedBy = "developer")
     private List<DevMasterySkill> devMasterySkill = new ArrayList<>();
-    @OneToOne
-    @JoinColumn(name = "user_id") // FK en bdd
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "user_id") 
     private User user;
 
     public Developer() {
@@ -55,10 +56,6 @@ public class Developer {
     }
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public List<JobApplication> getJobapplications() {
-        return jobApplications;
     }
 
     public void setJobapplications(List<JobApplication> jobApplications) {
